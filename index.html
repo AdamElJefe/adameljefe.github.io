@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adam Houck — AI & Full-Stack Developer</title>
+<meta name="description" content="Adam Houck builds AI-powered web apps, chatbots and integrations: Next.js, Python, FastAPI, PostgreSQL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf7; --surface: #ffffff; --ink: #17151c; --muted: #5d5868; --line: #e6e2ea;
+    --accent: #b8336a; --accent-soft: #fbe9f1; --code: #f2eff5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f0d14; --surface: #18151f; --ink: #f1edf7; --muted: #a69fb4; --line: #2c2736;
+            --accent: #e58fb8; --accent-soft: #2a1822; --code: #221e2b; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 Inter, system-ui, sans-serif; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+  header.top { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  header.top nav a { color: var(--muted); text-decoration: none; margin-left: 18px; font-size: 15px; }
+  header.top nav a:hover { color: var(--ink); }
+  .brand { font: 700 18px "Space Grotesk", sans-serif; color: var(--ink); text-decoration: none; }
+  h1, h2, h3 { font-family: "Space Grotesk", sans-serif; line-height: 1.15; margin: 0; }
+  .hero { padding: 56px 0 48px; }
+  .hero h1 { font-size: clamp(36px, 6vw, 60px); letter-spacing: -0.02em; max-width: 14ch; }
+  .hero p.lead { font-size: 19px; color: var(--muted); max-width: 58ch; margin: 18px 0 26px; }
+  .tag { display: inline-block; font-size: 13px; font-weight: 500; padding: 4px 10px; border-radius: 999px;
+         background: var(--accent-soft); color: var(--accent); margin-bottom: 18px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 11px 18px; border-radius: 10px; font-weight: 600; font-size: 15px;
+         text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #1a0f15; } }
+  section { padding: 44px 0; border-top: 1px solid var(--line); }
+  section > h2 { font-size: 28px; margin-bottom: 8px; }
+  section > p.sub { color: var(--muted); margin: 0 0 28px; }
+  .feature { display: grid; grid-template-columns: 1.25fr 1fr; gap: 32px; align-items: start; }
+  .feature img.demo { width: 100%; border-radius: 12px; border: 1px solid var(--line); display: block; }
+  .shots { display: grid; grid-template-columns: 2.35fr 1fr; gap: 12px; margin-top: 12px; align-items: start; }
+  .shots img { width: 100%; border-radius: 10px; border: 1px solid var(--line); display: block; }
+  .feature h3 { font-size: 24px; margin-bottom: 6px; }
+  .stack { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+  ul.points { padding-left: 18px; margin: 0 0 18px; }
+  ul.points li { margin-bottom: 8px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .card h3 { font-size: 19px; margin-bottom: 4px; }
+  .card .stack { margin-bottom: 10px; }
+  .card p { margin: 0 0 10px; }
+  .note { font-size: 14px; color: var(--muted); }
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px 28px; }
+  .skills h3 { font-size: 15px; font-family: Inter, sans-serif; font-weight: 600; margin-bottom: 6px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips span { background: var(--code); border-radius: 6px; padding: 3px 9px; font-size: 14px; }
+  .services li { margin-bottom: 10px; }
+  .contact { text-align: left; }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+  @media (max-width: 760px) {
+    .feature { grid-template-columns: 1fr; }
+    header.top nav a { margin-left: 12px; }
+    header.top nav a.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#">Adam Houck</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#services" class="hide-sm">Services</a>
+      <a href="#skills" class="hide-sm">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <span class="tag">Available for freelance projects</span>
+    <h1>I build AI products that actually work.</h1>
+    <p class="lead">Full-stack developer in Lancaster, PA. I ship AI chat apps, LLM integrations and MVPs end to end, from the React front end to the Python back end and database. I use AI-assisted development to move fast, then review the code myself and back it with automated tests.</p>
+    <div class="btns">
+      <a class="btn primary" href="#contact">Start a project</a>
+      <a class="btn" href="https://github.com/AdamElJefe">GitHub</a>
+    </div>
+  </div>
+
+  <section id="work">
+    <h2>Featured project</h2>
+    <p class="sub">A working product, not a mockup. The code is public.</p>
+    <div class="feature">
+      <div>
+        <img class="demo" src="assets/chat-demo.gif" alt="Animated demo: a user sends a message and the AI character's reply streams in word by word" width="760" height="507">
+        <div class="shots">
+          <img src="assets/discover-desktop.png" alt="Character catalog on desktop" loading="lazy">
+          <img src="assets/chat-mobile.png" alt="Chat screen on a phone" loading="lazy">
+        </div>
+      </div>
+      <div>
+        <h3>Aster: AI character chat platform</h3>
+        <div class="stack">Next.js · React · TypeScript · Python · FastAPI · PostgreSQL · Redis</div>
+        <ul class="points">
+          <li>Users create AI characters and chat with them; replies stream in live.</li>
+          <li>A background worker writes replies, so a server restart never loses or duplicates a message.</li>
+          <li>Each user's data is locked down twice: in the app and by the database itself (row-level security). Chats are encrypted at rest.</li>
+          <li>Daily usage limits, export and delete, and an admin review queue.</li>
+          <li>79 automated tests, including restarting the server mid-conversation.</li>
+        </ul>
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/AdamElJefe/aster-ai-chat">View the code</a>
+          <a class="btn" href="https://github.com/AdamElJefe/aster-ai-chat/blob/main/docs/ARCHITECTURE.md">How it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>More work</h2>
+    <p class="sub">Other things I've built and run.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>Protostar Edge</h3>
+        <div class="stack">Python · asyncio · WebSockets · REST APIs</div>
+        <p>An automated trading bot for Kalshi prediction markets. It scans markets on a schedule, prices them with two models, and manages exits in real time over WebSockets, with stop-losses, daily loss limits and a paper-trading mode.</p>
+        <p>407 unit tests. 71% win rate across 927 simulated trades.</p>
+        <p class="note">Private code. Walkthrough available on request.</p>
+      </article>
+      <article class="card">
+        <h3>Live-stream widgets</h3>
+        <div class="stack">JavaScript · SVG animation · StreamElements · Kick</div>
+        <p>Custom subscriber-goal and sub-counter overlays running on live Kick streams, including animated pixel-art gems that fill as goals are reached. They handle live events like bulk gift subs, and streamers change fonts, colors and goals without touching code.</p>
+      </article>
+      <article class="card">
+        <h3>Multi-persona AI assistant</h3>
+        <div class="stack">Local LLMs · Ollama · agent design</div>
+        <p>A design for an assistant where six AI personalities talk in one group chat, coordinated by an overseer model. I tested what local hardware can handle: VRAM, latency and context limits.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>What I can build for you</h2>
+    <p class="sub">Fixed-price or hourly. You get working code, tests and a short write-up.</p>
+    <ul class="services">
+      <li><strong>AI chatbots and assistants:</strong> for your site or app, using OpenAI, Claude or open models.</li>
+      <li><strong>MVPs:</strong> a first working version of your web app, with accounts, a database and a clean UI.</li>
+      <li><strong>AI features in existing apps:</strong> summarization, search, content generation and automation.</li>
+      <li><strong>APIs and back ends:</strong> Python/FastAPI services, PostgreSQL schemas, background jobs.</li>
+      <li><strong>Streamer tools:</strong> custom overlays, alerts and chat integrations.</li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <p class="sub">What I work with day to day.</p>
+    <div class="skills">
+      <div><h3>AI / LLM</h3><div class="chips"><span>OpenAI-compatible APIs</span><span>Streaming</span><span>Prompt design</span><span>Ollama</span><span>vLLM</span><span>Claude Code</span></div></div>
+      <div><h3>Back end</h3><div class="chips"><span>Python</span><span>FastAPI</span><span>asyncio</span><span>REST</span><span>SSE</span><span>WebSockets</span></div></div>
+      <div><h3>Front end</h3><div class="chips"><span>TypeScript</span><span>React</span><span>Next.js</span><span>Tailwind CSS</span><span>SVG</span></div></div>
+      <div><h3>Data & quality</h3><div class="chips"><span>PostgreSQL</span><span>Redis</span><span>pytest</span><span>Docker</span><span>GitHub Actions</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Background</h2>
+    <p class="sub">B.S. in Game Design (Full Sail University, 2023). Before development I spent five years as a managing editor and seven years in deadline-driven customs documentation work, and I currently manage Twitch communities. Clients get clear updates, clean documentation and work delivered on time.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Let's talk</h2>
+    <p class="sub">Tell me what you want to build and when you need it. Reach me through GitHub or on the freelance platform where you found me. I usually reply within a day.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://github.com/AdamElJefe">github.com/AdamElJefe</a>
+    </div>
+  </section>
+</div>
+<footer>
+  <div class="wrap">© 2026 Adam Houck</div>
+</footer>
+</body>
+</html>
